@@ -7,15 +7,35 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
+import FirebaseAuthUI
+import FirebaseGoogleAuthUI
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, FUIAuthDelegate {
 
     var window: UIWindow?
-
+    
+    fileprivate(set) var auth: FIRAuth? = FIRAuth.auth()
+    fileprivate(set) var authUI: FUIAuth? = FUIAuth.defaultAuthUI()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        FIRApp.configure()
+        
+        self.auth = FIRAuth.auth()
+        self.authUI = FUIAuth.defaultAuthUI()
+        
+        /*if let authUI = self.authUI {
+            authUI.delegate = self;
+            let providers: [FUIAuthProvider] = [
+                FUIGoogleAuth(),
+                ]
+            authUI.providers = providers
+            
+            self.window!.rootViewController = authUI.authViewController()
+        }*/
+        
         return true
     }
 
@@ -40,7 +60,29 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplicationOpenURLOptionsKey : Any] = [:]) -> Bool {
+        let sourceApplication = options[UIApplicationOpenURLOptionsKey.sourceApplication] as! String?
+        if FUIAuth.defaultAuthUI()?.handleOpen(url, sourceApplication: sourceApplication) ?? false {
+            return true
+        }
+        // other URL handling goes here.
+        return false
+    }
 
-
+    func authUI(_ authUI: FUIAuth, didSignInWith user: FIRUser?, error: Error?) {
+        guard let authError = error else { return }
+        
+        let errorCode = UInt((authError as NSError).code)
+        
+        switch errorCode {
+        case FUIAuthErrorCode.userCancelledSignIn.rawValue:
+            print("User cancelled sign-in");
+            break
+        default:
+            let detailedError = (authError as NSError).userInfo[NSUnderlyingErrorKey] ?? authError
+            print("Login error: \((detailedError as! NSError).localizedDescription)");
+        }
+    }
 }
 

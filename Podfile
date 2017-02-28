@@ -7,5 +7,6 @@ target 'FirebaseTest' do
 
   # Pods for FirebaseTest
   pod 'Firebase/Core'
+  pod 'FirebaseUI'
 
 end

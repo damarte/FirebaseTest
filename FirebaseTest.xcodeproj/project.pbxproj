@@ -13,6 +13,9 @@
 		0522AFA31E659737008C9B2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0522AFA21E659737008C9B2F /* Assets.xcassets */; };
 		0522AFA61E659737008C9B2F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0522AFA41E659737008C9B2F /* LaunchScreen.storyboard */; };
 		0522AFAE1E6597DC008C9B2F /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0522AFAD1E6597DC008C9B2F /* GoogleService-Info.plist */; };
+		0522AFB01E65C257008C9B2F /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0522AFAF1E65C257008C9B2F /* MapKit.framework */; };
+		0522AFB21E65C2C1008C9B2F /* CustomMKMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0522AFB11E65C2C1008C9B2F /* CustomMKMapView.swift */; };
+		0522AFB41E65C31A008C9B2F /* CacheTileOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0522AFB31E65C31A008C9B2F /* CacheTileOverlay.swift */; };
 		7EDF810F691616088606DFA9 /* Pods_FirebaseTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 621C3AD9B0CC7875B3879FDF /* Pods_FirebaseTest.framework */; };
 /* End PBXBuildFile section */
 
@@ -25,6 +28,9 @@
 		0522AFA51E659737008C9B2F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0522AFA71E659737008C9B2F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0522AFAD1E6597DC008C9B2F /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		0522AFAF1E65C257008C9B2F /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		0522AFB11E65C2C1008C9B2F /* CustomMKMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomMKMapView.swift; sourceTree = "<group>"; };
+		0522AFB31E65C31A008C9B2F /* CacheTileOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CacheTileOverlay.swift; sourceTree = "<group>"; };
 		13FDFC346DFF9F38703BE116 /* Pods-FirebaseTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTest.release.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTest/Pods-FirebaseTest.release.xcconfig"; sourceTree = "<group>"; };
 		621C3AD9B0CC7875B3879FDF /* Pods_FirebaseTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FirebaseTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AB397BCB6E485C23FD7BFF8E /* Pods-FirebaseTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FirebaseTest.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FirebaseTest/Pods-FirebaseTest.debug.xcconfig"; sourceTree = "<group>"; };
@@ -35,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0522AFB01E65C257008C9B2F /* MapKit.framework in Frameworks */,
 				7EDF810F691616088606DFA9 /* Pods_FirebaseTest.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +77,8 @@
 				0522AFA41E659737008C9B2F /* LaunchScreen.storyboard */,
 				0522AFA71E659737008C9B2F /* Info.plist */,
 				0522AFAD1E6597DC008C9B2F /* GoogleService-Info.plist */,
+				0522AFB11E65C2C1008C9B2F /* CustomMKMapView.swift */,
+				0522AFB31E65C31A008C9B2F /* CacheTileOverlay.swift */,
 			);
 			path = FirebaseTest;
 			sourceTree = "<group>";
@@ -77,6 +86,7 @@
 		76E66912E29C0120AC9F4E00 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0522AFAF1E65C257008C9B2F /* MapKit.framework */,
 				621C3AD9B0CC7875B3879FDF /* Pods_FirebaseTest.framework */,
 			);
 			name = Frameworks;
@@ -217,6 +227,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				0522AF9E1E659737008C9B2F /* ViewController.swift in Sources */,
+				0522AFB41E65C31A008C9B2F /* CacheTileOverlay.swift in Sources */,
+				0522AFB21E65C2C1008C9B2F /* CustomMKMapView.swift in Sources */,
 				0522AF9C1E659737008C9B2F /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +351,7 @@
 			baseConfigurationReference = AB397BCB6E485C23FD7BFF8E /* Pods-FirebaseTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = KPNNPWB392;
 				INFOPLIST_FILE = FirebaseTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -353,6 +366,7 @@
 			baseConfigurationReference = 13FDFC346DFF9F38703BE116 /* Pods-FirebaseTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				DEVELOPMENT_TEAM = KPNNPWB392;
 				INFOPLIST_FILE = FirebaseTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -381,6 +395,7 @@
 				0522AFAC1E659737008C9B2F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
